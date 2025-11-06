@@ -1,0 +1,50 @@
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  color: black;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.brandlogo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+
+}
+
+.menuicon{
+    margin-right: 15px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    
+}
+
+.menuItem{
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+/* Ensure react-bootstrap .nav-link inside our menu stacks vertically and fills width */
+.menu :global(.nav-link) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    color: inherit;
+}
