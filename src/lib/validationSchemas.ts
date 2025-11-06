@@ -19,7 +19,7 @@ export const AssetSchema = Yup.object({
   assetName: Yup.string().required(),
   assetAmount: Yup.number().positive().required(),
   dollarAmount: Yup.number().positive().required(),
-  avgBuyPrice: Yup.number().positive().required(),
-  profitLoss: Yup.number().required(),
+  avgBuyPrice: Yup.number().positive(),
+  profitLoss: Yup.number(),
   owner: Yup.string().required(),
 });

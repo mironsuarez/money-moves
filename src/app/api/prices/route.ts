@@ -1,16 +1,14 @@
 // eslint-disable-next-line import/prefer-default-export
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const ids = searchParams.get('ids') ?? 'bitcoin,ethereum,solana'; // coingecko-style ids
-  const vs = searchParams.get('vs') ?? 'usd';
+export async function GET() {
+  const assets = ['bitcoin', 'ethereum', 'kompete']; // you can generate this dynamically later
 
-  const url = `https://pro-api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=${vs}`;
-  const res = await fetch(url, {
-    headers: { 'x-cg-pro-api-key': process.env.COINGECKO_API_KEY! },
-    cache: 'no-store',
+  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${assets}&vs_currencies=usd`;
+
+  const response = await fetch(url, {
+    headers: { 'x-cg-demo-api-key': process.env.COINGECKO_API_KEY ?? 'CG-h3an5YjZiwCjtSBN2WwqHPYr' },
+    cache: 'no-store', // ensures always fresh
   });
-  if (!res.ok) return new Response(JSON.stringify({ error: 'upstream' }), { status: 502 });
 
-  const data = await res.json(); // shape: { bitcoin:{usd:12345}, ethereum:{usd:...}, ...}
-  return Response.json({ data, ts: Date.now(), vs });
+  const data = await response.json();
+  return Response.json(data);
 }

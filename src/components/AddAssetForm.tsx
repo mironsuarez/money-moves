@@ -75,24 +75,6 @@ const AddAssetForm: React.FC = () => {
                   />
                   <div className="invalid-feedback">{errors.dollarAmount?.message}</div>
                 </Form.Group>
-                <Form.Group>
-                  <Form.Label>Average Buy Price</Form.Label>
-                  <input
-                    type="number"
-                    {...register('avgBuyPrice')}
-                    className={`form-control ${errors.avgBuyPrice ? 'is-invalid' : ''}`}
-                  />
-                  <div className="invalid-feedback">{errors.avgBuyPrice?.message}</div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Profit/Loss</Form.Label>
-                  <input
-                    type="number"
-                    {...register('profitLoss')}
-                    className={`form-control ${errors.profitLoss ? 'is-invalid' : ''}`}
-                  />
-                  <div className="invalid-feedback">{errors.profitLoss?.message}</div>
-                </Form.Group>
                 <input type="hidden" {...register('owner')} value={currentUser} />
                 <Form.Group className="form-group">
                   <Row className="pt-3">

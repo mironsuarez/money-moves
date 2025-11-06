@@ -47,9 +47,7 @@ model Stuff {
 model Asset {
   id           Int    @id @default(autoincrement())
   assetName    String
-  assetAmount  Int
-  dollarAmount Int
-  avgBuyPrice  Int
-  profitLoss   Int
+  assetAmount  Decimal
+  dollarAmount Decimal
   owner        String
 }
