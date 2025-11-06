@@ -98,15 +98,18 @@ export async function addAsset(asset: {
   assetAmount: number;
   dollarAmount: number;
   avgBuyPrice: number;
-  pl: number;
+  profitLoss: number;
+  owner: string;
 }) {
-  await (prisma as any).asset.create({
+  // Create a new asset record in the correct model instead of updating the 'stuff' model
+  await prisma.asset.create({
     data: {
       assetName: asset.assetName,
       assetAmount: asset.assetAmount,
       dollarAmount: asset.dollarAmount,
       avgBuyPrice: asset.avgBuyPrice,
-      pl: asset.pl,
+      owner: asset.owner,
+      profitLoss: asset.profitLoss,
     },
   });
   // After adding, redirect to the assets page

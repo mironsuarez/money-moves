@@ -11,7 +11,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import { AssetSchema } from '@/lib/validationSchemas';
 
 // eslint-disable-next-line max-len
-const onSubmit = async (asset: { assetName: string; assetAmount: number; dollarAmount: number; avgBuyPrice: number; pl: number }) => {
+const onSubmit = async (asset: { assetName: string; assetAmount: number; dollarAmount: number; avgBuyPrice: number; profitLoss: number; owner: string }) => {
   // console.log(`onSubmit data: ${JSON.stringify(asset, null, 2)}`);
   await addAsset(asset);
   swal('Success', 'Your item has been added', 'success', {
@@ -88,10 +88,10 @@ const AddAssetForm: React.FC = () => {
                   <Form.Label>Profit/Loss</Form.Label>
                   <input
                     type="number"
-                    {...register('pl')}
-                    className={`form-control ${errors.pl ? 'is-invalid' : ''}`}
+                    {...register('profitLoss')}
+                    className={`form-control ${errors.profitLoss ? 'is-invalid' : ''}`}
                   />
-                  <div className="invalid-feedback">{errors.pl?.message}</div>
+                  <div className="invalid-feedback">{errors.profitLoss?.message}</div>
                 </Form.Group>
                 <input type="hidden" {...register('owner')} value={currentUser} />
                 <Form.Group className="form-group">
