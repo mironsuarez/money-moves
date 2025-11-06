@@ -1,18 +1,29 @@
 import { getServerSession } from 'next-auth';
-import authOptions from '@/lib/authOptions';
+import { prisma } from '@/lib/prisma';
+// import StuffItem from '@/components/StuffItem';
 import { loggedInProtectedPage } from '@/lib/page-protection';
+import authOptions from '@/lib/authOptions';
 import SideNav from '@/components/Sidenav';
-import { Button, Table } from 'react-bootstrap';
-import { Asset } from '@prisma/client';
+import { Table, Button } from 'react-bootstrap';
+// eslint-disable-next-line import/extensions
 
-const Assets = async () => {
+/** Render a list of contacts for the logged in user. */
+const AssetPage = async () => {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
     session as {
       user: { email: string; id: string; randomKey: string };
+      // eslint-disable-next-line @typescript-eslint/comma-dangle
     } | null,
   );
+  const owner = (session && session.user && session.user.email) || '';
+  const assets = await prisma.asset.findMany({
+    where: {
+      owner,
+    },
+  });
+  // console.log(assets);
 
   return (
     <div className="d-flex">
@@ -34,13 +45,15 @@ const Assets = async () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>{Asset.assetName}</td>
-              <td>{Asset.assetAmount}</td>
-              <td>{Asset.dollarAmount}</td>
-              <td>{Asset.avgBuyPrice}</td>
-              <td>{Asset.pl}</td>
-            </tr>
+            {assets.map((asset) => (
+              <tr key={asset.id}>
+                <td>{asset.assetName}</td>
+                <td>{asset.assetAmount}</td>
+                <td>{asset.dollarAmount}</td>
+                <td>{asset.avgBuyPrice}</td>
+                <td>{asset.profitLoss}</td>
+              </tr>
+            ))}
             {/* Sample data rows */}
           </tbody>
         </Table>
@@ -49,4 +62,4 @@ const Assets = async () => {
   );
 };
 
-export default Assets;
+export default AssetPage;

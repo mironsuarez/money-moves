@@ -51,4 +51,5 @@ model Asset {
   dollarAmount Int
   avgBuyPrice  Int
   profitLoss   Int
+  owner        String
 }
