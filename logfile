@@ -11,3 +11,43 @@
 2025-11-05 19:13:54.532 HST [2473] LOG:  database system is ready to accept connections
 2025-11-05 19:18:54.630 HST [2478] LOG:  checkpoint starting: time
 2025-11-05 19:18:55.086 HST [2478] LOG:  checkpoint complete: wrote 4 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.024 s, total=0.456 s; sync files=2, longest=0.024 s, average=0.012 s; distance=24 kB, estimate=24 kB; lsn=0/8D01FC0, redo lsn=0/8D01F68
+2025-11-05 19:58:10.706 HST [13156] FATAL:  terminating connection due to administrator command
+2025-11-05 19:58:10.811 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 19:58:10.834 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.007 s, sync=0.003 s, total=0.023 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4400 kB, estimate=4400 kB; lsn=0/914E1A8, redo lsn=0/914E150
+2025-11-05 19:58:13.069 HST [13166] FATAL:  terminating connection due to administrator command
+2025-11-05 19:58:13.171 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 19:58:13.186 HST [2478] LOG:  checkpoint complete: wrote 9 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.004 s, total=0.015 s; sync files=8, longest=0.002 s, average=0.001 s; distance=4428 kB, estimate=4428 kB; lsn=0/95A1378, redo lsn=0/95A1320
+2025-11-05 19:58:15.343 HST [13176] FATAL:  terminating connection due to administrator command
+2025-11-05 19:58:15.444 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 19:58:15.459 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.016 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4400 kB, estimate=4425 kB; lsn=0/99ED720, redo lsn=0/99ED6C8
+2025-11-05 19:58:17.610 HST [13186] FATAL:  terminating connection due to administrator command
+2025-11-05 19:58:17.712 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 19:58:17.725 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.014 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4401 kB, estimate=4423 kB; lsn=0/9E39BB0, redo lsn=0/9E39B58
+2025-11-05 20:03:17.826 HST [2478] LOG:  checkpoint starting: time
+2025-11-05 20:03:21.258 HST [2478] LOG:  checkpoint complete: wrote 34 buffers (0.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=3.412 s, sync=0.014 s, total=3.433 s; sync files=36, longest=0.008 s, average=0.001 s; distance=152 kB, estimate=3996 kB; lsn=0/9E5FD08, redo lsn=0/9E5FCB0
+2025-11-05 20:19:55.446 HST [18369] FATAL:  terminating connection due to administrator command
+2025-11-05 20:19:55.547 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 20:19:55.565 HST [2478] LOG:  checkpoint complete: wrote 4 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.004 s, sync=0.004 s, total=0.018 s; sync files=5, longest=0.002 s, average=0.001 s; distance=4428 kB, estimate=4428 kB; lsn=0/A2B2E20, redo lsn=0/A2B2DC8
+2025-11-05 20:19:57.743 HST [18380] FATAL:  terminating connection due to administrator command
+2025-11-05 20:19:57.845 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 20:19:57.859 HST [2478] LOG:  checkpoint complete: wrote 10 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.004 s, total=0.014 s; sync files=11, longest=0.002 s, average=0.001 s; distance=4457 kB, estimate=4457 kB; lsn=0/A70D2F0, redo lsn=0/A70D298
+2025-11-05 20:19:59.995 HST [18390] FATAL:  terminating connection due to administrator command
+2025-11-05 20:20:00.096 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 20:20:00.110 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.014 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4427 kB, estimate=4454 kB; lsn=0/AB5FF60, redo lsn=0/AB5FF08
+2025-11-05 20:20:02.253 HST [18400] FATAL:  terminating connection due to administrator command
+2025-11-05 20:20:02.354 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 20:20:02.368 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.014 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4427 kB, estimate=4451 kB; lsn=0/AFB2CD0, redo lsn=0/AFB2C78
+2025-11-05 20:25:02.469 HST [2478] LOG:  checkpoint starting: time
+2025-11-05 20:25:02.581 HST [2478] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.103 s, sync=0.003 s, total=0.113 s; sync files=2, longest=0.002 s, average=0.002 s; distance=6 kB, estimate=4006 kB; lsn=0/AFB4578, redo lsn=0/AFB4520
+2025-11-05 20:32:33.936 HST [21419] FATAL:  terminating connection due to administrator command
+2025-11-05 20:32:34.038 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 20:32:34.054 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.003 s, sync=0.003 s, total=0.017 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4427 kB, estimate=4427 kB; lsn=0/B4073C0, redo lsn=0/B407368
+2025-11-05 20:32:36.254 HST [21429] FATAL:  terminating connection due to administrator command
+2025-11-05 20:32:36.356 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 20:32:36.369 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.014 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4427 kB, estimate=4427 kB; lsn=0/B85A318, redo lsn=0/B85A2C0
+2025-11-05 20:32:38.551 HST [21439] FATAL:  terminating connection due to administrator command
+2025-11-05 20:32:38.653 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 20:32:38.667 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.015 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4428 kB, estimate=4428 kB; lsn=0/BCAD358, redo lsn=0/BCAD300
+2025-11-05 20:32:40.813 HST [21449] FATAL:  terminating connection due to administrator command
+2025-11-05 20:32:40.915 HST [2478] LOG:  checkpoint starting: immediate force wait
+2025-11-05 20:32:40.932 HST [2478] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.004 s, sync=0.004 s, total=0.018 s; sync files=4, longest=0.003 s, average=0.001 s; distance=4428 kB, estimate=4428 kB; lsn=0/C1004A8, redo lsn=0/C100450

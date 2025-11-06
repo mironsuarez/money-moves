@@ -43,3 +43,12 @@ model Stuff {
   condition Condition @default(good)
   owner     String
 }
+
+model Asset {
+  id           Int    @id @default(autoincrement())
+  assetName    String
+  assetAmount  Int
+  dollarAmount Int
+  avgBuyPrice  Int
+  profitLoss   Int
+}

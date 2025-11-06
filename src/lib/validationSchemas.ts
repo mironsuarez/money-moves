@@ -14,3 +14,11 @@ export const EditStuffSchema = Yup.object({
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
   owner: Yup.string().required(),
 });
+
+export const AssetSchema = Yup.object({
+  assetName: Yup.string().required(),
+  assetAmount: Yup.number().positive().required(),
+  dollarAmount: Yup.number().positive().required(),
+  avgBuyPrice: Yup.number().positive().required(),
+  pl: Yup.number().required(),
+});

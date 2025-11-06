@@ -1,8 +1,9 @@
 import { Col, Container, Image, Row } from 'react-bootstrap';
-
+import Navbar from '@/components/Navbar';
 /** The Home page. */
 const Home = () => (
   <main>
+    <Navbar />
     <Container id="landing-page" fluid className="py-3">
       <Row className="align-middle text-center">
         <Col xs={4}>

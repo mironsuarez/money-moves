@@ -92,3 +92,23 @@ export async function changePassword(credentials: { email: string; password: str
     },
   });
 }
+
+export async function addAsset(asset: {
+  assetName: string;
+  assetAmount: number;
+  dollarAmount: number;
+  avgBuyPrice: number;
+  pl: number;
+}) {
+  await (prisma as any).asset.create({
+    data: {
+      assetName: asset.assetName,
+      assetAmount: asset.assetAmount,
+      dollarAmount: asset.dollarAmount,
+      avgBuyPrice: asset.avgBuyPrice,
+      pl: asset.pl,
+    },
+  });
+  // After adding, redirect to the assets page
+  redirect('/assets');
+}
