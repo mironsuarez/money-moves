@@ -1,66 +1,55 @@
+/* eslint-disable max-len */
+
 'use server';
 
-import { Stuff, Condition } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
+import { Decimal } from '@prisma/client/runtime/library';
 import { prisma } from './prisma';
 
 /**
- * Adds a new stuff to the database.
- * @param stuff, an object with the following properties: name, quantity, owner, condition.
+ * Adds a new asset to the database.
+ * @param asset, an object with the following properties: assetName, assetAmount, dollarAmount, owner.
  */
-export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
-  // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
-  let condition: Condition = 'good';
-  if (stuff.condition === 'poor') {
-    condition = 'poor';
-  } else if (stuff.condition === 'excellent') {
-    condition = 'excellent';
-  } else {
-    condition = 'fair';
-  }
-  await prisma.stuff.create({
+// After adding, redirect to the assets page
+
+/**
+ * Edits an existing asset in the database.
+ // eslint-disable-next-line max-len, max-len
+ * @param asset, an object with the following properties: id, assetName, assetAmount, dollarAmount, avgBuyPrice, profitLoss, owner.
+ */
+export async function editAsset(asset: {
+  id: number;
+  assetName: string;
+  assetAmount: Decimal;
+  dollarAmount: Decimal;
+  owner: string;
+}) {
+  // console.log(`editAsset data: ${JSON.stringify(asset, null, 2)}`);
+  await prisma.asset.update({
+    where: { id: asset.id },
     data: {
-      name: stuff.name,
-      quantity: stuff.quantity,
-      owner: stuff.owner,
-      condition,
+      assetName: asset.assetName,
+      assetAmount: asset.assetAmount,
+      dollarAmount: asset.dollarAmount,
+      owner: asset.owner,
     },
   });
-  // After adding, redirect to the list page
-  redirect('/list');
+  // After updating, redirect to the asset page
+  redirect('/asset');
 }
 
 /**
- * Edits an existing stuff in the database.
- * @param stuff, an object with the following properties: id, name, quantity, owner, condition.
+ * Deletes an existing asset from the database.
+ * @param id, the id of the asset to delete.
  */
-export async function editStuff(stuff: Stuff) {
-  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
-  await prisma.stuff.update({
-    where: { id: stuff.id },
-    data: {
-      name: stuff.name,
-      quantity: stuff.quantity,
-      owner: stuff.owner,
-      condition: stuff.condition,
-    },
-  });
-  // After updating, redirect to the list page
-  redirect('/list');
-}
-
-/**
- * Deletes an existing stuff from the database.
- * @param id, the id of the stuff to delete.
- */
-export async function deleteStuff(id: number) {
-  // console.log(`deleteStuff id: ${id}`);
-  await prisma.stuff.delete({
+export async function deleteAsset(id: number) {
+  // console.log(`deleteAsset id: ${id}`);
+  await prisma.asset.delete({
     where: { id },
   });
   // After deleting, redirect to the list page
-  redirect('/list');
+  redirect('/assets');
 }
 
 /**
@@ -95,10 +84,8 @@ export async function changePassword(credentials: { email: string; password: str
 
 export async function addAsset(asset: {
   assetName: string;
-  assetAmount: number;
-  dollarAmount: number;
-  avgBuyPrice: number;
-  profitLoss: number;
+  assetAmount: Decimal;
+  dollarAmount: Decimal;
   owner: string;
 }) {
   // Create a new asset record in the correct model instead of updating the 'stuff' model
@@ -107,9 +94,7 @@ export async function addAsset(asset: {
       assetName: asset.assetName,
       assetAmount: asset.assetAmount,
       dollarAmount: asset.dollarAmount,
-      avgBuyPrice: asset.avgBuyPrice,
       owner: asset.owner,
-      profitLoss: asset.profitLoss,
     },
   });
   // After adding, redirect to the assets page

@@ -32,7 +32,7 @@ export default function LivePrice({
       const entry = j?.[symbol];
       const usd = entry?.usd;
       if (typeof usd === 'number') setPrice(usd);
-      t = setTimeout(load, 5000);
+      t = setTimeout(load, 10000);
     };
 
     load();

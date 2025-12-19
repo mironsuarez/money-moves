@@ -15,6 +15,7 @@
     font-weight: bold;
     margin-bottom: 30px;
     align-items: center;
+    color: inherit;
 }
 
 .menu{
@@ -47,4 +48,21 @@
     width: 100%;
     padding: 0.5rem 0.5rem;
     color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+    .sidenav {
+        background-color: #0b1020;
+        color: #e5e7eb;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .menu :global(.nav-link) {
+        color: inherit;
+    }
+
+    .menu :global(.nav-link:hover) {
+        background-color: rgba(255, 255, 255, 0.06);
+        border-radius: 8px;
+    }
 }

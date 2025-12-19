@@ -9,11 +9,18 @@ import { redirect } from 'next/navigation';
 import { addAsset } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { AssetSchema } from '@/lib/validationSchemas';
+import { Decimal } from '@prisma/client/runtime/library';
 
 // eslint-disable-next-line max-len
-const onSubmit = async (asset: { assetName: string; assetAmount: number; dollarAmount: number; avgBuyPrice: number; profitLoss: number; owner: string }) => {
+const onSubmit = async (asset: { assetName: string; assetAmount: number; dollarAmount: number; owner: string }) => {
   // console.log(`onSubmit data: ${JSON.stringify(asset, null, 2)}`);
-  await addAsset(asset);
+  const payload = {
+    assetName: asset.assetName,
+    assetAmount: new Decimal(asset.assetAmount),
+    dollarAmount: new Decimal(asset.dollarAmount),
+    owner: asset.owner,
+  };
+  await addAsset(payload);
   swal('Success', 'Your item has been added', 'success', {
     timer: 2000,
   });
@@ -55,13 +62,12 @@ const AddAssetForm: React.FC = () => {
                     {...register('assetName')}
                     className={`form-control ${errors.assetName ? 'is-invalid' : ''}`}
                   />
-                  <div className="invalid-feedback">{errors.assetName?.message}</div>
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Asset Amount</Form.Label>
                   <input
                     type="number"
-                    {...register('assetAmount')}
+                    {...register('assetAmount', { valueAsNumber: true })}
                     className={`form-control ${errors.assetAmount ? 'is-invalid' : ''}`}
                   />
                   <div className="invalid-feedback">{errors.assetAmount?.message}</div>
@@ -70,9 +76,12 @@ const AddAssetForm: React.FC = () => {
                   <Form.Label>Dollar Amount</Form.Label>
                   <input
                     type="number"
-                    {...register('dollarAmount')}
+                    {...register('dollarAmount', { valueAsNumber: true })}
                     className={`form-control ${errors.dollarAmount ? 'is-invalid' : ''}`}
                   />
+                  <div className="invalid-feedback">{errors.dollarAmount?.message}</div>
+                </Form.Group>
+                <Form.Group>
                   <div className="invalid-feedback">{errors.dollarAmount?.message}</div>
                 </Form.Group>
                 <input type="hidden" {...register('owner')} value={currentUser} />
